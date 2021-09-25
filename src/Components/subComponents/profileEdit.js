@@ -22,7 +22,11 @@ function ProfileEdit(props)
         validate={(values)=>{
             const errors={};
             //name errors
-            if(values.name.length < 5)
+            if(values.name.length===0)
+             {
+                errors.name="*Required"
+             }
+            else if(values.name.length < 5)
             {
                 errors.name="*Name should have atleast 4 characters"
             }
@@ -31,12 +35,20 @@ function ProfileEdit(props)
                 errors.name="*should not contain Special characters and Numbers"
             }
             //email errors
-            if(!validateEmail.test(values.email))
+            if(values.email.length===0)
+             {
+                errors.email="*Required"
+             }
+            else if(!validateEmail.test(values.email))
             {
                 errors.email ="*Email is Invalid"
             }
             //country errors
-            if(values.country.length < 4)
+            if(values.country.length===0)
+             {
+                errors.country="*Required"
+             }
+            else if(values.country.length < 4)
             {
                 errors.country="*Country should have atleast 3 characters"
             }
@@ -45,12 +57,20 @@ function ProfileEdit(props)
                 errors.country="*should not contain Special characters and Numbers"
             }
             //company errors
-            if(!textcheck.test(values.company))
+            if(values.company.length===0)
+             {
+                errors.company="*Required"
+             }
+            else if(!textcheck.test(values.company))
             {
                 errors.company ="*should not contain Special characters and Numbers"
             }
             //city errors
-            if(values.city.length < 4)
+            if(values.city.length===0)
+             {
+                errors.city="*Required"
+             }
+            else if(values.city.length < 4)
             {
                 errors.city="*City should have atleast 3 characters"
             }
@@ -59,7 +79,11 @@ function ProfileEdit(props)
                 errors.city="*should not contain Special characters and Numbers"
             }
             //address errors
-            if(values.address.length < 11)
+            if(values.address.length===0)
+             {
+                errors.address="*Required"
+             }
+            else if(values.address.length < 11)
             {
                 errors.address="*address should have atleast 10 characters"
             }

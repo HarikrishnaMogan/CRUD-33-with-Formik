@@ -21,7 +21,11 @@ function EditAndCreateUser(props)
          validate={(values)=>{
              const errors= {};
              //errors for name
-             if(values.name.length<4)
+             if(values.name.length===0)
+             {
+                errors.name="*Required"
+             }
+             else if(values.name.length<4)
              {
                  errors.name="*Name must have atleast Four characters"
              }
@@ -30,12 +34,20 @@ function EditAndCreateUser(props)
                  errors.name = "*should not contain Special characters and Numbers"
              }
             //errors for country
-             if(!textcheck.test(values.country))
+            if(values.country.length===0)
+             {
+                errors.country="*Required"
+             }
+             else if(!textcheck.test(values.country))
              {
                 errors.country = "*should not contain Special characters and Numbers"
              }
              //errors for email
-             if(!validateEmail.test(values.email))
+             if(values.email.length===0)
+             {
+                errors.email="*Required"
+             }
+             else if(!validateEmail.test(values.email))
              {
                  errors.email = "*Email is not valid"
              }
